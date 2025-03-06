@@ -10,7 +10,7 @@ package sequentiel;
  * @author boya
  */
 /*
-Ce programme séquentiel affectue la multiplication de la matrice A par la matrice B pour obtenir la matrice C.
+Ce programme séquentiel effectue la multiplication de la matrice A par la matrice B pour obtenir la matrice C.
 La matrice A a pour dimension (M,N) : M étant le nombre de lignes et N étant le nombre de colonnes
 La matrice B a pour dimension (N,P) : N étant le nombre de lignes et P étant le nombre de coloonnes
 La matrice C a pour dimension (M,P) : M étant le nombre de lignes et P étant le nombre de colonnes

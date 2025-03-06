@@ -14,19 +14,20 @@ public class staticSchedule {
     public int startLoop, curLoop, endLoop, numThreads;
     public static class LoopRange {
         public int start, end;
+        static int [][] matrice;
+
     }
-    
+
     public int step, modulo;
     public staticSchedule(int startLoop, int endLoop, int numThreads) {
-        int numIterations=endLoop - startLoop + 1;
+        int numIterations = endLoop - startLoop + 1;
         curLoop = startLoop - 1;
-        this.startLoop = startLoop;
-        this.endLoop = endLoop;
-        this.numThreads = numThreads;
-        step = numIterations / numThreads;
-        modulo = numIterations % numThreads;
+        this.startLoop = startLoop; // indices de depart  Depart
+        this.numThreads = numThreads; //  Nombre de threads
+        step = numIterations / numThreads; // indices de FIN
+        modulo = numIterations % numThreads; // Reste du nombre d'iterations
     }
-       
+
     public  synchronized LoopRange loopGetRange() {
         if (curLoop >= endLoop) {
             return null;
@@ -38,7 +39,7 @@ public class staticSchedule {
             curLoop++;
             modulo--;
         }
-        range.end = (curLoop < endLoop) ? curLoop : endLoop;
+        range.end = Math.min(curLoop, endLoop);
         return range;
     }
 }
